@@ -1,10 +1,23 @@
+import type { LoaderFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { functions } from "../services/firebase";
+import { httpsCallable } from "firebase/functions";
+
+export const loader: LoaderFunction = async () => {
+  const helloWorld = httpsCallable(functions, "helloWorld");
+  const result = await helloWorld();
+  return result.data;
+};
 
 export default function Index() {
+  const result = useLoaderData();
+
   return (
     <Box>
       <Typography variant="h1">Welcome to Remix</Typography>
+      <Typography variant="body1">{result}</Typography>
       <ul>
         <li>
           <a
