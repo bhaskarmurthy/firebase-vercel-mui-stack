@@ -1,7 +1,10 @@
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
+    <Box>
+      <Typography variant="h1">Welcome to Remix</Typography>
       <ul>
         <li>
           <a
@@ -27,6 +30,6 @@ export default function Index() {
           </a>
         </li>
       </ul>
-    </div>
+    </Box>
   );
 }
